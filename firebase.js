@@ -17,3 +17,16 @@ window.db = db;
 window.ref = ref;
 window.push = push;
 console.log("Firebase Connected Successfully");
+const db = window.db;
+const ref = window.ref;
+const push = window.push;
+
+window.saveOrder = function(orderData) {
+  push(ref(db, "orders"), orderData)
+    .then(() => {
+      console.log("Order Saved");
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+};
