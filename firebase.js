@@ -11,4 +11,5 @@ const firebaseConfig = {
 };
 
 const app = initializeApp(firebaseConfig);
-console.log("Firebase Connected");
+
+console.log("Firebase Connected Successfully");
