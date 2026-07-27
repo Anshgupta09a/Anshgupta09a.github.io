@@ -1,5 +1,5 @@
-import { getDatabase, ref, push } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-database.js";
 import { initializeApp } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-app.js";
+import { getDatabase, ref, push } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-database.js";
 
 const firebaseConfig = {
   apiKey: "AIzaSyBCvcUugYuYQcK6zVYmlqxyyaBGPHSmlTQ",
@@ -13,20 +13,9 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 const db = getDatabase(app);
-window.db = db;
-window.ref = ref;
-window.push = push;
-console.log("Firebase Connected Successfully");
-const db = window.db;
-const ref = window.ref;
-const push = window.push;
 
-window.saveOrder = function(orderData) {
-  push(ref(db, "orders"), orderData)
-    .then(() => {
-      console.log("Order Saved");
-    })
-    .catch((error) => {
-      console.log(error);
-    });
+window.saveOrderToFirebase = function(order) {
+  push(ref(db, "orders"), order)
+    .then(() => alert("✅ Order Saved"))
+    .catch((error) => alert("❌ " + error.message));
 };
