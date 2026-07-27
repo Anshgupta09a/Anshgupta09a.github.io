@@ -13,4 +13,7 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 const db = getDatabase(app);
+window.db = db;
+window.ref = ref;
+window.push = push;
 console.log("Firebase Connected Successfully");
