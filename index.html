@@ -108,7 +108,14 @@ let msg=
 "%0AAddress: "+document.getElementById("address").value+
 "%0AProduct: Green Stone Bangles"+
 "%0AQuantity: "+document.getElementById("qty").value;
-
+saveOrderToFirebase({
+  name: document.getElementById("name").value,
+  phone: document.getElementById("phone").value,
+  address: document.getElementById("address").value,
+  product: "Green Stone Bangles",
+  quantity: document.getElementById("qty").value,
+  time: new Date().toLocaleString()
+});
 window.open("https://wa.me/917654176410?text="+msg);
 }
 </script>
